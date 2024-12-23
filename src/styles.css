@@ -21,6 +21,7 @@
 
 
 main {
+  @apply h-screen;
   background-color: var(--antiflash-white);
   margin-top: 50px;
   margin-left: 90px;

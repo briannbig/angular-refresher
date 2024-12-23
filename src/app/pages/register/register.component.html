@@ -1,0 +1,62 @@
+<div class="flex justify-center">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <form>
+      <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+      <hr class="mb-6" />
+
+      @if (registerText().length) {
+        <div class="bg-green-100 border border-prussian-blue text-pine-green px-4 py-3 rounded relative my-2" role="alert">
+            <strong class="font-bold">Login!</strong>
+            <span class="block sm:inline">{{registerText()}}</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <svg class="fill-current h-6 w-6 text-pine-green" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+          </div>
+      }
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          [formControl]="email"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700">Password</label>
+        <input
+          type="password"
+          id="password"
+          [formControl]="password"
+          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label for="confirm-password" class="block text-gray-700"
+          >Confirm Password</label
+        >
+        <input
+          type="password"
+          id="confirm-password"
+          [formControl]="confirmPassword"
+          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        Register
+      </button>
+
+      <div class="mt-4 text-center">
+        <a routerLink="/login" class="text-blue-500 hover:underline"
+          >Logiin Instead</a
+        >
+      </div>
+    </form>
+  </div>
+</div>

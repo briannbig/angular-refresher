@@ -3,6 +3,8 @@ import { HomeComponent } from './pages/home/home.component'
 import { CalculatorComponent } from './pages/calculator/calculator.component'
 import { GroupsComponent } from './pages/groups/groups.component'
 import { PostsComponent } from './pages/posts/posts.component'
+import { RegisterComponent } from './pages/register/register.component'
+import { LoginComponent } from './pages/login/login.component'
 
 export const routes: Routes = [
   {
@@ -28,6 +30,19 @@ export const routes: Routes = [
     path: 'posts',
     loadComponent: () => {
       return PostsComponent
+    }
+  },
+  {
+    path: 'register',
+    loadComponent: () => {
+      return RegisterComponent
+    }
+  },
+
+  {
+    path: 'login',
+    loadComponent: () => {
+      return LoginComponent
     }
   },
   {
