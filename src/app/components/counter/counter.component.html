@@ -1,0 +1,25 @@
+<div class="text-center mx-60 bg-white my-10 p-10 rounded-lg">
+  <h2>
+    Counter value: <span appHighlight> {{ counterValue() }}</span>
+  </h2>
+  <div class="grid grid-cols-3 gap-4 align-middle mt-4">
+    <button
+      class="bg-amber-500 text-black"
+      (click)="decrement()"
+      [disabled]="counterValue() <= 0"
+    >
+      Decrement
+    </button>
+    <button (click)="reset()" [disabled]="counterValue() <= 0">Reset</button>
+    <button class="bg-pine-green" (click)="increment()">Increment</button>
+  </div>
+
+  <h3 class="text-slate-700 text-2xl mt-5">
+    We value your time. Every time you perform increment the value we reward you
+    something you can cash out
+  </h3>
+
+  <p>
+    Your reward points: <span appHighlight> {{ rewardValue() }} </span>
+  </p>
+</div>

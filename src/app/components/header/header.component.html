@@ -1,0 +1,62 @@
+<div
+  class="fixed top-0 w-full transition-all text-white mx-auto duration-300 bg-pine-green"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center h-20">
+      <a
+        href="/"
+        class="text-3xl font-bold text-white-smoke hover:text-lime transition-colors"
+      >
+        {{ title() }}
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          routerLink="/"
+          class="text-white-smoke hover:text-lime transition-colors"
+        >
+          Home
+        </a>
+        <a
+          href="/about"
+          class="text-white-smoke hover:text-lime transition-colors"
+        >
+          About
+        </a>
+        <a
+          routerLink="/groups"
+          class="text-white-smoke hover:text-lime transition-colors"
+        >
+          Groups
+        </a>
+        <a
+          routerLink="/calculator"
+          class="text-white-smoke hover:text-lime transition-colors"
+        >
+          Calculator
+        </a>
+        <a
+        routerLink="/posts"
+        class="text-white-smoke hover:text-lime transition-colors"
+      >
+        Posts
+      </a>
+        <a
+          href="/contact"
+          class="text-white-smoke hover:text-lime transition-colors"
+        >
+          Contact
+        </a>
+        <button
+          class="bg-lime text-night px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+        >
+          Book Now
+        </button>
+      </div>
+
+      <button
+        class="md:hidden text-white-smoke hover:text-lime transition-colors"
+      ></button>
+    </div>
+  </div>
+</div>

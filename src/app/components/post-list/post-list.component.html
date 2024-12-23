@@ -1,0 +1,22 @@
+<div>
+  <div class="mb-4">
+    <input
+      type="text"
+      placeholder="Search posts..."
+      class="border p-2 rounded w-full"
+    />
+    <button class="mt-2">Search</button>
+  </div>
+
+  @if (isLoading) {
+    <app-spinner />
+  }
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (post of posts; track $index) {
+    <div class="border bg-white p-4 rounded-lg">
+      <h3 appEllipsis class="text-3xl text-pine-green font-bold">{{ post.title }}</h3>
+      <p>{{ post.body  }} </p>
+    </div>
+    }
+  </div>
+</div>
