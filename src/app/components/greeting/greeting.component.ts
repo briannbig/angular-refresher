@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-greeting',
@@ -7,6 +8,9 @@ import { Component, signal } from '@angular/core';
   styleUrl: './greeting.component.css'
 })
 export class GreetingComponent {
-  username = signal('John')
+  private auth  = inject(AuthService)
+
+
+  username = computed( () => this.auth.currentUser()?.displayName || 'there!')
 
 }

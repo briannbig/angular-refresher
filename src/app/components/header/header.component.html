@@ -47,15 +47,27 @@
         >
           Contact
         </a>
+
+        @if (!isLoggedin()){
         <button
           class="bg-lime text-night px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
-        > <a
-        routerLink="/login"
-        class="text-white-smoke hover:text-lime transition-colors"
-      >
-        Login
-      </a>
+        >
+          <a
+            routerLink="/login"
+            class="text-white-smoke hover:text-lime transition-colors"
+          >
+            Login
+          </a>
         </button>
+        } @else{
+        <button
+          class="bg-lime text-night px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+
+        }
       </div>
 
       <button
