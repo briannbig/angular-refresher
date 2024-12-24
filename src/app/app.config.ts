@@ -1,5 +1,11 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core'
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection
+} from '@angular/core'
 import { provideRouter } from '@angular/router'
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
+import { provideAuth, getAuth } from '@angular/fire/auth'
 
 import { routes } from './app.routes'
 import {
@@ -7,12 +13,18 @@ import {
   withEventReplay
 } from '@angular/platform-browser'
 import { provideHttpClient } from '@angular/common/http'
+import { environment } from '../environments/environment.development'
+
+const firebaseConfig = environment.firebaseConfig
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient()
+    provideHttpClient(),
+
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth())
   ]
 }
