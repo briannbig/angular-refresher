@@ -5,6 +5,7 @@ import { GroupsComponent } from './pages/groups/groups.component'
 import { PostsComponent } from './pages/posts/posts.component'
 import { RegisterComponent } from './pages/register/register.component'
 import { LoginComponent } from './pages/login/login.component'
+import { CreateGroupComponent } from './pages/create-group/create-group.component'
 
 export const routes: Routes = [
   {
@@ -24,6 +25,12 @@ export const routes: Routes = [
     path: 'groups',
     loadComponent: () => {
       return GroupsComponent
+    }
+  },
+  {
+    path: 'groups/new',
+    loadComponent () {
+      return CreateGroupComponent
     }
   },
   {

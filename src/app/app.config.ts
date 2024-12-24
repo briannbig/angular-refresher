@@ -14,6 +14,7 @@ import {
 } from '@angular/platform-browser'
 import { provideHttpClient } from '@angular/common/http'
 import { environment } from '../environments/environment.development'
+import { getDatabase, provideDatabase } from '@angular/fire/database'
 
 const firebaseConfig = environment.firebaseConfig
 
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
 
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase())
   ]
 }

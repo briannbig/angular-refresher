@@ -1,0 +1,43 @@
+<h2 class="text-center mb-6">Create Group</h2>
+<div class="flex justify-center">
+    
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl ">
+    
+    <form [formGroup]="createGroupForm" (submit)="onSubmit($event)">
+
+        @if (isLoading()) {
+            <app-spinner />
+        }
+
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700">Name:</label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          required
+          
+        />
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700"
+          >Description:</label
+        >
+        <textarea
+          id="description"
+          formControlName="description"
+          required
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+        ></textarea>
+      </div>
+      
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+        [disabled]="isLoading()"
+      >
+        Create Group
+      </button>
+    </form>
+  </div>
+</div>

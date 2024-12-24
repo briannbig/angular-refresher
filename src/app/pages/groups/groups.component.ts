@@ -1,6 +1,6 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { GroupService } from '../../services/group.service';
-import { Group } from '../../model/group.type';
+import { Component, computed, inject, OnInit, signal } from '@angular/core'
+import { FirebaseDbService } from '../../services/firebase-db.service'
+import { Group } from '../../model/group.interface'
 
 @Component({
   selector: 'app-groups',
@@ -8,14 +8,23 @@ import { Group } from '../../model/group.type';
   templateUrl: './groups.component.html',
   styleUrl: './groups.component.css'
 })
-export class GroupsComponent implements OnInit{
+export class GroupsComponent implements OnInit {
+  groupService = inject(FirebaseDbService)
 
-  groupService = inject(GroupService)
 
-  groups = signal<Array<Group>>(this.groupService.groups)
 
-  ngOnInit(): void {
-    
+  groups = signal<Group[]>([])
+
+  ngOnInit (): void {
+    this.groupService.getAllGroups()
+    .subscribe({
+      next: (groups) => {
+        this.groups.set(groups)
+      },
+      error: err => {
+        console.error('Error fetching groups', err)
+        return []
+      }
+    })
   }
-
 }
